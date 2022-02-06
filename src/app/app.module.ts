@@ -12,6 +12,8 @@ import { mockApiServices } from 'app/mock-api';
 import { LayoutModule } from 'app/layout/layout.module';
 import { AppComponent } from 'app/app.component';
 import { appRoutes } from 'app/app.routing';
+import { initializeApp } from 'firebase/app';
+import { environment } from 'environments/environment';
 
 const routerConfig: ExtraOptions = {
     preloadingStrategy       : PreloadAllModules,
@@ -47,4 +49,7 @@ const routerConfig: ExtraOptions = {
 })
 export class AppModule
 {
+    constructor(){
+        const app = initializeApp(environment.firebaseConfig);
+    }
 }
